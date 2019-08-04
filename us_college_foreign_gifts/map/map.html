@@ -160,7 +160,7 @@ MAKING IT A JAVASCRIPT FILE .js, RATHER THAN A GEOJSON FILE
 ALLOWS YOU TO LOAD IT LOCALLY WITHOUT DEALING WITH SETTING UP SERVERS ON YOUR MACHINE.
  -->
 
-	<script type="text/javascript" src="geo-data2.js"></script>
+	<script type="text/javascript" src="geo-data.js"></script>
 
 	<!-- 
 HERE BEGINS ALL THE SCRIPT THAT SETS UP THE MAP 
@@ -260,23 +260,26 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 
 // Soma's explanation of 'paint': https://gist.github.com/jsoma/c91cfa7a1f4f8346d95ac2a907f0cb0c
 
-			datalayer = map.addLayer({
-				id: "datalayer",
-				type: "fill",
+			 datalayer = map.addLayer({
+			 	id: "datalayer",
+					type: "fill",
 				source: {
 					type: "geojson",
-					data: infoData,
-				},
+			 		data: infoData,
+			 },
 				paint: {
-					'fill-color': ['get', 'color'],
+			 		'fill-color': ['get', 'color'],
 
-					// 'fill-color': [
-// 						'interpolate', ['linear'],
-// 						["to-number", ["get", "rating"]],  
-// 						1, "#ece2f0", 
-// 						5, "#a6bddb",
-// 						10, "#1c9099" 
-// 					],
+					'fill-color': [
+			 			'interpolate', ['linear'],
+						 ["to-number", ["get", "rating"]], 
+						0, '#92A3A0',
+						1, '#C6E3DE',
+						10000, "#C6E3DE", 
+ 						500000, "#AAD5CD",
+						1000000, "#8EC7BD", 
+						70000000, "#4F8279"
+					],
 
 					'fill-outline-color': 'white',
 					'fill-opacity': [
